@@ -1,6 +1,5 @@
 import java.net.HttpURLConnection;
 import java.io.BufferedReader;
-import java.io.Console;
 import java.net.URL;
 import java.io.InputStreamReader;
 import java.net.MalformedURLException;
@@ -8,19 +7,42 @@ import java.io.IOException;
 
 import java.util.Scanner;
 
+import java.awt.*;
+import java.awt.event.*;
+
 public class Consulter{
 
     private static HttpURLConnection connection;
     private static Scanner reader = new Scanner(System.in);
     public static void main(String[] args){
         //XLMVRJ9VOBZPM5J3
+        //https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE&from_currency=BTC&to_currency=USD&apikey=
 
+        MainMenu();
+        reader.nextLine();
+        reader.close();
+    }
+
+    private static void MainMenu(){            
+
+        System.out.println("\t\tAPI Consulter\n\n");
+        System.out.println("Saved querys");
+        System.out.println("New Query");
+        System.out.println("Exit");
+
+        
+        
+    }
+
+    public void keyTyped(KeyEvent event){
+        System.out.println(event.getKeyCode());
+    }
+
+    private static void NewQuery(){
         String key = GetInputKey();
         String apiUrl = GetInputUrl();
-        reader.close();
-        System.out.println(key);
-        System.out.println(apiUrl);
-
+        
+        System.out.println(apiUrl + key);
     }
 
     private static String GetInputKey(){
